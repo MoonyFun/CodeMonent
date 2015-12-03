@@ -151,14 +151,11 @@ public class NewsFragment extends Fragment {
                 newsImage = ButterKnife.findById(itemView, R.id.news_image);
                 newsContent = ButterKnife.findById(itemView, R.id.news_content);
 
-                itemView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Log.d("NormalTextViewHolder", "onClick--> position = " + getAdapterPosition());
+                itemView.setOnClickListener(v -> {
+                    Log.d("NormalTextViewHolder", "onClick--> position = " + getAdapterPosition());
                         Intent intent = new Intent(getActivity(), NewsWebActivity.class);
                         intent.putExtra("url", datas.get(getAdapterPosition()).getUrl());
                         getActivity().startActivity(intent);
-                    }
                 });
             }
         }
